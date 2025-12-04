@@ -1,25 +1,26 @@
-<!--                   Jacoco Plugin                   -->
-            <plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.10</version>
-				<executions>
-					<execution>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-			
-		</plugins>
-	</build>
+<plugin>
+  <groupId>org.jacoco</groupId>
+  <artifactId>jacoco-maven-plugin</artifactId>
+  <version>0.8.10</version>
 
-</project>
+  <executions>
+
+    <!-- 1. Attach JaCoCo agent before tests -->
+    <execution>
+      <id>prepare-agent</id>
+      <goals>
+        <goal>prepare-agent</goal>
+      </goals>
+    </execution>
+
+    <!-- 2. Generate report AFTER all tests finish -->
+    <execution>
+      <id>report</id>
+      <phase>verify</phase>   ✅ FIXED
+      <goals>
+        <goal>report</goal>
+      </goals>
+    </execution>
+
+  </executions>
+</plugin>
