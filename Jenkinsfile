@@ -14,7 +14,7 @@ pipeline {
         }
            stage('Test') {
             steps {
-                mvn test"
+                "mvn test"
             }
             post{
                 always {
